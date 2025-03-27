@@ -1,0 +1,9 @@
+package com.lhx.service;
+
+import com.lhx.pojo.Dept;
+
+import java.util.List;
+
+public interface DeptService {
+    List<Dept> findAll();
+}
