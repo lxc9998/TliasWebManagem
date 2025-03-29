@@ -1,10 +1,11 @@
-package com.lhx.controller;
+package com.lhx.controller.dept;
 
 import com.lhx.pojo.Dept;
 import com.lhx.pojo.Result;
 import com.lhx.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -15,9 +16,15 @@ public class DeptController {
     @Autowired
     private DeptService deptService;
 
-    @GetMapping("/depts")
+    @GetMapping("/getDeptList")
     public Result list(){
         List<Dept> deptList = deptService.findAll();
         return Result.success(deptList);
+    }
+
+    @PostMapping("/delDeptById")
+    public Result delDeptById(Integer id){
+        deptService.delDeptById(id);
+        return Result.success();
     }
 }

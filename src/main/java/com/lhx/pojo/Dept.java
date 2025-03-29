@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Dept {
     private Integer id;
-    private String name;
+    private String deptName;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
 }

@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface DeptMapper {
     List<Dept> findAll();
+
+    void delDeptById(Integer id);
 }
