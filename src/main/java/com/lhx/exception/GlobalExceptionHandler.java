@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BusinessException.class)
     public Result handleBusinessException(BusinessException e) {
         // 如果是业务异常就直接返回给前端异常的错误信息
-        return Result.error(e.getMessage());
+        return Result.error("发生异常:"+e.getMessage());
     }
 }
 
