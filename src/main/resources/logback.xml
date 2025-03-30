@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!-- %d:日志时间格式化;%thread:输出线程名称;%-5level:日志级别从左往右输出5个字符宽度;%logger{36}日志记录器的名称(类的字节码对象),50表示最大50个字,如果5个会自动简化包名com.Xx.Yy.xx变成c.X.y.xx;%msg:log.info()的内容;%n:换行 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%-5level] [%logger{36}] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+<!--    &lt;!&ndash; 日志文件输出 &ndash;&gt;-->
+<!--    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        &lt;!&ndash; 日志文件的位置 &ndash;&gt;-->
+<!--        <file>D:/logs/MyLog.log</file>-->
+<!--        &lt;!&ndash; 日志文件的格式 &ndash;&gt;-->
+<!--        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">-->
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+<!--        </encoder>-->
+<!--        &lt;!&ndash; 日志文件的滚动策略 &ndash;&gt;-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            &lt;!&ndash; 日志文件的滚动策略，按天滚动,%i表示序号 &ndash;&gt;-->
+<!--            <fileNamePattern>D:/logs/MyLog-%d{yyyy-MM-dd}-%i.log</fileNamePattern>-->
+<!--            &lt;!&ndash; 最多保留7天的日志文件 &ndash;&gt;-->
+<!--            <maxHistory>7</maxHistory>-->
+<!--            &lt;!&ndash; 日志文件的最大大小,单位M,超过新增序号文件 &ndash;&gt;-->
+<!--            <maxHistory>5</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--    </appender>-->
+
+    <!-- 日志级别从低到高 TRACE < DEBUG < INFO < WARN < ERROR < FATAL，如果设置为WARN，低于WARN的信息都不会输出 -->
+    <!-- 关闭日志level="OFF" -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+<!--        <appender-ref ref="FILE"/>-->
+    </root>
+</configuration>

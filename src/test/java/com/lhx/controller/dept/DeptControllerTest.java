@@ -16,8 +16,8 @@ class DeptControllerTest {
 
     @DisplayName("模拟前端传入数据")
     @Test
-    void addDept1() {
-        deptController.addDept(Dept.builder().deptName("单元测试部门").build());
+    void addDept() {
+        deptController.addDept(Dept.builder().deptName("单元测试部门2").build());
     }
 
 }
