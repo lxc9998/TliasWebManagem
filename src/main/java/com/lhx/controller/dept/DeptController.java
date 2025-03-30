@@ -6,6 +6,7 @@ import com.lhx.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,6 +21,13 @@ public class DeptController {
     public Result list(){
         List<Dept> deptList = deptService.findAll();
         return Result.success(deptList);
+    }
+
+    // 新增部门
+    @PostMapping("/addDept")
+    public Result addDept(@RequestBody Dept dept){
+        deptService.addDept(dept);
+        return Result.success();
     }
 
     @PostMapping("/delDeptById")
