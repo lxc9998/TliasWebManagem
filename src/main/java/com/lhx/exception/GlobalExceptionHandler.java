@@ -4,12 +4,18 @@ import com.lhx.pojo.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(NoResourceFoundException.class)
+    public Result handleNoResourceFound() {
+        return Result.error("请求路径不存在");
+    }
 
     @ExceptionHandler(Exception.class)
     public Result handleException(Exception e) {

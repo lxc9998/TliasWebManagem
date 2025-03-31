@@ -4,7 +4,7 @@
     <insert id="addDept">
         insert into dept (dept_name) values (#{deptName})
     </insert>
-    <delete id="delDeptById">
+    <delete id="delDept">
         update dept set deleted = 1 where id = #{id}
     </delete>
 

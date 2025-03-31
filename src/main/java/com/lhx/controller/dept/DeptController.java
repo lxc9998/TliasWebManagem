@@ -5,10 +5,7 @@ import com.lhx.pojo.Result;
 import com.lhx.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +16,7 @@ public class DeptController {
     @Autowired
     private DeptService deptService;
 
+    // 查询部门列表
     @GetMapping("/getDeptList")
     public Result getDeptList(){
         List<Dept> deptList = deptService.findAll();
@@ -34,9 +32,11 @@ public class DeptController {
         return Result.success();
     }
 
-    @PostMapping("/delDeptById")
-    public Result delDeptById(Integer id){
-        deptService.delDeptById(id);
+    // 删除部门提取路径中的参数
+    @PostMapping("/delDept")
+    public Result delDept(@RequestBody Dept dept){
+        log.info("前端入参：{}",dept);
+        deptService.delDept(dept.getId());
         return Result.success();
     }
 }

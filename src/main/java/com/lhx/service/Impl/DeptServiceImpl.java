@@ -23,8 +23,8 @@ public class DeptServiceImpl implements DeptService {
     }
 
     @Override
-    public void delDeptById(Integer id) {
-        deptMapper.delDeptById(id);
+    public void delDept(Integer id) {
+        deptMapper.delDept(id);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class DeptServiceImpl implements DeptService {
             deptMapper.addDept(dept);
         } catch (Exception e) {
             if (e.getMessage().contains("Duplicate entry") && e.getMessage().contains("for key 'dept.dept_name'")) {
-                throw new BusinessException("部门名称已存在"); // 将技术异常转为自定义业务异常,并由全局异常处理器进行处理
+                throw new BusinessException("部门名称已存在，请重新输入。"); // 将技术异常转为自定义业务异常,并由全局异常处理器进行处理
             } else {
                 throw new RuntimeException("操作失败,请联系管理员进行处理");
             }
