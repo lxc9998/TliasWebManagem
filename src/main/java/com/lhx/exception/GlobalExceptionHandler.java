@@ -12,6 +12,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    // 捕获路径不存在异常
     @ExceptionHandler(NoResourceFoundException.class)
     public Result handleNoResourceFound() {
         return Result.error("请求路径不存在");

@@ -4,6 +4,7 @@
     <insert id="addDept">
         insert into dept (dept_name) values (#{deptName})
     </insert>
+
     <delete id="delDept">
         update dept set deleted = 1 where id = #{id}
     </delete>
@@ -12,4 +13,14 @@
     <select id="findAll" resultType="com.lhx.pojo.Dept">
             select * from dept where deleted=0;
     </select>
+
+    <!-- 根据部门id查询部门名称 -->
+    <select id="getDeptInfo" resultType="string">
+        select dept_name from dept where id=#{deptId}
+    </select>
+
+    <!--  修改部门名称  -->
+    <update id="updateDept">
+        update dept set dept_name=#{deptName} where id=#{id}
+    </update>
 </mapper>

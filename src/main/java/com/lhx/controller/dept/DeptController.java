@@ -39,4 +39,18 @@ public class DeptController {
         deptService.delDept(dept.getId());
         return Result.success();
     }
+
+    // 查询部门名称
+    @GetMapping("/getDeptInfo/{deptId}")
+    public Result getDeptInfo(@PathVariable Integer deptId){
+        String deptName = deptService.getDeptInfo(deptId);
+        return Result.success(deptName);
+    }
+
+    // 更新部门名称
+    @PostMapping("/updateDept")
+    public Result updateDept(@RequestBody Dept dept){
+        deptService.updateDept(dept);
+        return Result.success();
+    }
 }

@@ -12,4 +12,8 @@ public interface DeptMapper {
     void delDept(Integer id);
 
     void addDept(Dept dept);
+
+    String getDeptInfo(Integer deptId);
+
+    void updateDept(Dept dept);
 }

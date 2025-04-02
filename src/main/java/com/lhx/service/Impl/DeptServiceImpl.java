@@ -39,4 +39,22 @@ public class DeptServiceImpl implements DeptService {
             }
         }
     }
+
+    @Override
+    public String getDeptInfo(Integer deptId) {
+        return deptMapper.getDeptInfo(deptId);
+    }
+
+    @Override
+    public void updateDept(Dept dept) {
+        try {
+            deptMapper.updateDept(dept);
+        } catch (Exception e) {
+            if (e.getMessage().contains("Duplicate entry") && e.getMessage().contains("for key 'dept.dept_name'")) {
+                throw new BusinessException("部门名称已存在，请重新输入。"); // 将技术异常转为自定义业务异常,并由全局异常处理器进行处理
+            } else {
+                throw new RuntimeException("操作失败,请联系管理员进行处理");
+            }
+        }
+    }
 }

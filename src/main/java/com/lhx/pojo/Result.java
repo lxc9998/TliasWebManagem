@@ -15,12 +15,14 @@ public class Result {
         return result;
     }
 
+    // 1、如果传对象那就给data
     public static Result success(Object data){
         Result result = success();
         result.data = data;
         return result;
     }
 
+    // 2、如果传string那就是msg
     public static Result error(String msg){
         Result result = new Result();
         result.code = 0;
