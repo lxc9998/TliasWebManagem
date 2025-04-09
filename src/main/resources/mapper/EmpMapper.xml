@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhx.mapper.EmpMapper">
+
+    <select id="getEmpList" resultType="com.lhx.pojo.Emp">
+        select e.*,d.dept_name from emp e left join dept d on e.dept_id=d.id order by e.crete_time desc limit #{pageNum},#{pageSize}
+    </select>
+</mapper>

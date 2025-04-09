@@ -1,4 +1,4 @@
-package com.lhx.controller.dept;
+package com.lhx.controller;
 
 import com.lhx.pojo.Dept;
 import com.lhx.pojo.Result;

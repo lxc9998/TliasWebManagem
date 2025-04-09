@@ -1,5 +1,6 @@
 package com.lhx.controller.dept;
 
+import com.lhx.controller.DeptController;
 import com.lhx.pojo.Dept;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
